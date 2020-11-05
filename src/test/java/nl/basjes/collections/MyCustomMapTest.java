@@ -53,6 +53,7 @@ public class MyCustomMapTest {
         LOG.info("Serialize");
         Kryo kryo = new Kryo();
         kryo.register(MyCustomMap.class);
+        kryo.register(java.util.TreeMap.class);
 
         ByteBufferOutput byteBufferOutput = new ByteBufferOutput(1_000_000, -1);
         kryo.writeClassAndObject(byteBufferOutput, instance);
